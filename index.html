@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Anointed Path</title>
 
+  <!-- Fonts + AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Playfair Display', serif; background: #0b0b0b; color: #fff; overflow-x: hidden; }
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #0b0b0b;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
     /* Loading Screen */
     #loadingScreen {
@@ -51,6 +57,7 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 2s ease forwards;
+      animation-delay: 1s;
     }
 
     @keyframes fadeInUp {
@@ -70,6 +77,24 @@
       cursor: pointer;
     }
 
+    .about {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 4em 2em;
+    }
+
+    .about img {
+      width: 400px;
+      border-radius: 10px;
+    }
+
+    .about-text {
+      max-width: 600px;
+    }
+
     .gallery {
       text-align: center;
       padding: 4em 2em;
@@ -83,6 +108,7 @@
 
     .character-card img {
       width: 300px;
+      border-radius: 10px;
       transition: transform 0.3s ease;
     }
 
@@ -107,10 +133,24 @@
       opacity: 1;
     }
 
+    .trailer, .footer {
+      text-align: center;
+      padding: 4em 2em;
+    }
+
+    iframe {
+      width: 80%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+    }
+
     @media screen and (max-width: 768px) {
       header h1 { font-size: 2em; padding: 0 1em; }
       .btn { width: 80%; }
       .character-card img { width: 90%; }
+      .about { flex-direction: column; text-align: center; }
+      .about img { width: 80%; }
     }
   </style>
 </head>
@@ -122,14 +162,32 @@
     <img src="images/logo.png" alt="Logo">
   </div>
 
-  <!-- Audio -->
+  <!-- Background Audio -->
   <audio id="themeMusic" src="images/hallowed-light.mp3" preload="auto" loop></audio>
 
+  <!-- Hero -->
   <header>
     <h1>The Anointed Path</h1>
     <button class="btn">Enter the Realm</button>
   </header>
 
+  <!-- About -->
+  <section class="about">
+    <img src="images/ezrael.jpg" alt="Ezrael" />
+    <div class="about-text">
+      <h2>About the Game</h2>
+      <p>Ezrael, cast into exile, must reclaim the light in a world torn by ancient wars.
+      Journey through the realms of Elarion, battle gods, fallen angels, and uncover a forgotten prophecy.</p>
+    </div>
+  </section>
+
+  <!-- Trailer -->
+  <section class="trailer">
+    <h2>Official Trailer</h2>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+  </section>
+
+  <!-- Champions -->
   <section class="gallery">
     <h2 data-aos="fade-up">Meet the Champions</h2>
     <div class="character-card" data-aos="fade-up" data-aos-delay="200">
@@ -146,6 +204,14 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <section class="footer">
+    <h2>Explore Elarion</h2>
+    <p>Traverse 51 realms, each with divine lore, ancient ruins, celestial battles, and dark secrets.</p>
+    <p>&copy; 2025 Crown & Cross Studios – All rights reserved. <br><a href="mailto:projectanointedpath@gmail.com">Contact Us</a></p>
+  </section>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
@@ -154,7 +220,7 @@
     const btn = document.querySelector(".btn");
 
     btn.addEventListener("click", () => {
-      audio.play().catch(e => console.log("Autoplay blocked:", e));
+      audio.play().catch(err => console.log("Autoplay blocked:", err));
     });
 
     window.addEventListener("load", () => {
@@ -163,5 +229,6 @@
       setTimeout(() => { loader.style.display = "none"; }, 1000);
     });
   </script>
+
 </body>
 </html>
