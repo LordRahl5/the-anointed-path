@@ -42,27 +42,18 @@
       <div id="burger-menu" class="bx bx-menu"></div>
     </header>
 
-  <!-- Background Music Player -->
-<audio id="bg-music" src="assets/audio/Hallowed-Light.mp3" autoplay loop></audio>
 
-<button id="music-toggle" aria-label="Toggle Music">
-  🔊
+<!-- Background Music Player -->
+<audio id="bg-music" src="assets/audio/Hallowed-Light.mp3" loop></audio>
+
+<button id="music-toggle" aria-label="Toggle Music"
+  style="position: fixed; bottom: 20px; right: 20px; font-size: 24px; background: none; border: none; color: white; z-index: 9999;">
+  🔈
 </button>
 
-<script>
-  const audio = document.getElementById("bg-music");
-  const toggleBtn = document.getElementById("music-toggle");
 
-  // Try autoplay with muted first (Chrome requirement workaround)
-  audio.volume = 0.5;
-  audio.muted = false;
 
-  toggleBtn.addEventListener("click", () => {
-    audio.muted = !audio.muted;
-    toggleBtn.textContent = audio.muted ? "🔇" : "🔊";
-  });
-</script>
-  
+
     <!-- ################## -->
     <!-- home-->
     <!-- ################## -->
