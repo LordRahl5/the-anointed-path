@@ -66,28 +66,30 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-
-<audio id="bgm" loop>
-  <source src="audio/Hallowed-Light.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgm');
+    const button = document.getElementById('playMusicBtn');
 
-    // Optional: try autoplay just in case
-    audio.play().catch((e) => {
-      // Autoplay failed, wait for user interaction
-      console.warn('Autoplay blocked. Waiting for user interaction...');
-    });
+    // Always show the button
+    button.style.display = 'block';
 
-    // Play after any click
-    document.body.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play().catch((err) => {
-          console.error('Playback failed:', err);
+    // State tracking
+    let isPlaying = false;
+
+    button.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          button.textContent = '⏸️ Pause Music';
+        }).catch(err => {
+          console.error('Play failed:', err);
+          button.textContent = '❌ Failed to Play';
         });
+      } else {
+        audio.pause();
+        isPlaying = false;
+        button.textContent = '🔊 Play Music';
       }
     });
   });
