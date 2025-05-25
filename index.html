@@ -136,7 +136,18 @@
   </div>
 </section>
 
+<script>
+  document.querySelectorAll('.path').forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault(); // Fully blocks default button or link behavior
+      const path = this.textContent;
+      console.log("You selected the", path, "path.");
+      // Optional: add animation, storage, or panel update here
+    });
+  });
+</script>
 
+    
 
     <!-- ################## -->
     <!-- New Gameplay -->
