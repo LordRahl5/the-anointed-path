@@ -46,19 +46,26 @@
 <!-- Music Audio -->
 <audio id="bgm" src="audio/Hallowed-Light.mp3" loop></audio>
 
-<!-- Music Toggle Button -->
+<!-- Music Audio -->
+<audio id="bgm" src="audio/Hallowed-Light.mp3" loop></audio>
+
+<!-- Toggle Music Button -->
 <button id="playMusicBtn" style="
   position: fixed;
   bottom: 20px;
   left: 20px;
   padding: 12px 20px;
   font-size: 16px;
-  background-color: #111;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
   cursor: pointer;
-  z-index: 10000;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  opacity: 1;
 ">
   🔊 Play Music
 </button>
@@ -68,20 +75,24 @@
     const audio = document.getElementById('bgm');
     const button = document.getElementById('playMusicBtn');
 
-    // Always show the button
-    button.style.display = 'block';
+    // Don't disable the button — ever
+    button.disabled = false;
 
-    // On button click, try to play music
-    button.addEventListener('click', () => {
-      audio.play().then(() => {
-        button.textContent = '🎵 Music Playing';
-        button.disabled = true;
-        button.style.opacity = '0.6';
-      }).catch(err => {
-        console.error('Music play failed:', err);
-        button.textContent = '❌ Failed to Play';
-      });
-    });
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          button.textContent = '⏸️ Pause Music';
+        }).catch(err => {
+          console.error('Playback failed:', err);
+          button.textContent = '❌ Could Not Play';
+        });
+      } else {
+        audio.pause();
+        button.textContent = '🔊 Play Music';
+      }
+    }
+
+    button.addEventListener('click', toggleMusic);
   });
 </script>
 
