@@ -64,3 +64,25 @@ var mySwiper = new Swiper(".swiper", {
     clickable: true,
   },
 });
+
+
+const audio = document.getElementById("bg-music");
+const toggleBtn = document.getElementById("music-toggle");
+let isPlaying = false;
+
+toggleBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    audio.play()
+      .then(() => {
+        isPlaying = true;
+        toggleBtn.textContent = "🔊";
+      })
+      .catch((err) => {
+        console.log("Playback failed:", err);
+      });
+  } else {
+    audio.pause();
+    isPlaying = false;
+    toggleBtn.textContent = "🔈";
+  }
+});
