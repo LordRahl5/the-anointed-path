@@ -51,6 +51,7 @@ const scrollActive = () => {
   });
 };
 
+
 window.addEventListener("scroll", scrollActive);
 
 var mySwiper = new Swiper(".swiper", {
@@ -70,16 +71,25 @@ const audio = document.getElementById("bg-music");
 const toggleBtn = document.getElementById("music-toggle");
 let isPlaying = false;
 
+// Attempt to play after first interaction
+document.addEventListener("click", function initPlayOnce() {
+  audio.volume = 0.5;
+  audio.play().then(() => {
+    isPlaying = true;
+    toggleBtn.textContent = "🔊";
+  }).catch(err => {
+    console.log("Autoplay blocked until user interacts.");
+  });
+  document.removeEventListener("click", initPlayOnce);
+});
+
+// Manual toggle
 toggleBtn.addEventListener("click", () => {
   if (!isPlaying) {
-    audio.play()
-      .then(() => {
-        isPlaying = true;
-        toggleBtn.textContent = "🔊";
-      })
-      .catch((err) => {
-        console.log("Playback failed:", err);
-      });
+    audio.play().then(() => {
+      isPlaying = true;
+      toggleBtn.textContent = "🔊";
+    }).catch(err => console.log("Play failed:", err));
   } else {
     audio.pause();
     isPlaying = false;
