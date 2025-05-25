@@ -474,3 +474,64 @@ footer {
 
 
 
+
+/* ################### */
+/* Path Selector */
+/* ################### */
+
+.path-selector {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.path-selector h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-family: Cinzel;
+  color: var(--accent);
+}
+
+.paths {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.path {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--pink);
+  border-radius: 8px;
+  color: var(--pink);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: Merriweather;
+}
+
+.path:hover {
+  background-color: var(--pink);
+  color: #131319;
+  transform: scale(1.05);
+}
+
+/* Tooltip on hover */
+.path[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 1;
+  z-index: 10;
+}
+
+
