@@ -67,32 +67,28 @@ var mySwiper = new Swiper(".swiper", {
 });
 
 
-const audio = document.getElementById("bg-music");
-const toggleBtn = document.getElementById("music-toggle");
-let isPlaying = false;
+<audio id="bgm" loop>
+  <source src="audio/Hallowed-Light.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-// Attempt to play after first interaction
-document.addEventListener("click", function initPlayOnce() {
-  audio.volume = 0.5;
-  audio.play().then(() => {
-    isPlaying = true;
-    toggleBtn.textContent = "🔊";
-  }).catch(err => {
-    console.log("Autoplay blocked until user interacts.");
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bgm');
+
+    // Optional: try autoplay just in case
+    audio.play().catch((e) => {
+      // Autoplay failed, wait for user interaction
+      console.warn('Autoplay blocked. Waiting for user interaction...');
+    });
+
+    // Play after any click
+    document.body.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch((err) => {
+          console.error('Playback failed:', err);
+        });
+      }
+    });
   });
-  document.removeEventListener("click", initPlayOnce);
-});
-
-// Manual toggle
-toggleBtn.addEventListener("click", () => {
-  if (!isPlaying) {
-    audio.play().then(() => {
-      isPlaying = true;
-      toggleBtn.textContent = "🔊";
-    }).catch(err => console.log("Play failed:", err));
-  } else {
-    audio.pause();
-    isPlaying = false;
-    toggleBtn.textContent = "🔈";
-  }
-});
+</script>
