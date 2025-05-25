@@ -74,22 +74,25 @@ var mySwiper = new Swiper(".swiper", {
     // Always show the button
     button.style.display = 'block';
 
-    // State tracking
-    let isPlaying = false;
+    // Initial button text
+    button.textContent = '🔊 Play Music';
+
+    // Accurate check: is the music playing?
+    function isAudioPlaying(audioElement) {
+      return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
+    }
 
     button.addEventListener('click', () => {
-      if (!isPlaying) {
+      if (isAudioPlaying(audio)) {
+        audio.pause();
+        button.textContent = '🔊 Play Music';
+      } else {
         audio.play().then(() => {
-          isPlaying = true;
           button.textContent = '⏸️ Pause Music';
         }).catch(err => {
-          console.error('Play failed:', err);
+          console.error('Music play failed:', err);
           button.textContent = '❌ Failed to Play';
         });
-      } else {
-        audio.pause();
-        isPlaying = false;
-        button.textContent = '🔊 Play Music';
       }
     });
   });
