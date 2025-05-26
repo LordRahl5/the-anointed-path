@@ -584,25 +584,6 @@ p, a, button {
   line-height: 1.6;
 }
 
-/* Platform logos fix */
-.logos-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  margin: 50px auto;
-  padding: 20px;
-}
-
-.logos-container img {
-  width: 100px !important;
-  height: auto !important;
-  max-width: unset !important;
-  display: inline-block;
-  object-fit: contain;
-  filter: brightness(1.2);
-}
-
 
 /* Footer social icons */
 .footer-social {
