@@ -329,7 +329,7 @@ footer {
 
 .footer-box {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Ensure vertical stacking */
 }
 
 .footer-box h6 {
@@ -470,12 +470,6 @@ footer {
   filter: brightness(1.1);
 }
 
-@media (max-width: 768px) {
-  .platform-logos img {
-    width: 80px;
-  }
-}
-
 /* ################### */
 /* Breakpoints */
 /* ################### */
@@ -495,20 +489,28 @@ footer {
   }
 
   .navigation {
+    display: none; /* Hide by default */
     flex-direction: column;
     position: absolute;
-    top: 100%;
-    right: -100%;
-    width: 280px;
+    top: 60px; /* Adjusted to align below header */
+    left: 0;
+    width: 100%;
     min-height: 100vh;
     box-shadow: var(--shadow);
-    transition: right 0.2s ease-in-out;
     background: var(--bg);
+    padding: 1rem 0;
+    z-index: 999;
+    text-align: center;
+  }
+
+  .navigation.show {
+    display: flex; /* Show the menu when .show is toggled */
   }
 
   .navigation a {
     display: block;
     font-family: Merriweather;
+    margin: 1rem 0; /* Add spacing between links */
   }
 
   .navigation a:hover,
@@ -516,10 +518,6 @@ footer {
     color: var(--pink);
     background-color: transparent;
     transform: translateY(2px);
-  }
-
-  .navigation.active {
-    right: 0;
   }
 
   .ComingSoon-img img {
@@ -537,6 +535,7 @@ footer {
 
   /* Center Links section within footer-box for mobile, tablet, and iPad */
   .footer-box {
+    align-items: center; /* Center items horizontally */
     text-align: center; /* Center the heading and links */
   }
 
@@ -546,54 +545,18 @@ footer {
   }
 
   .footer-box a { /* Target links (Home, Watch Trailer, etc.) */
-    display: block; /* Ensure each item is on a new line */
+    display: block; /* Stack vertically for consistency */
     font-size: 1rem; /* Adjust font size for readability */
-    margin: 0.5rem auto; /* Center and add spacing between items */
+    margin: 0.2rem 0; /* Match your new style */
+    padding: 0.2rem 0; /* Match your new style */
     text-align: center; /* Explicitly center the text */
   }
 }
 
 /* Small screens (mobile, up to 768px) */
 @media screen and (max-width: 768px) {
-  .bx-menu {
-    display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px; /* Fixed typo: removed "przysz" */
-    z-index: 10000;
-  }
-
-  nav ul {
-    display: none;
-  }
-
   .platform-logos img {
     width: 80px; /* Updated to match the previous fix for platform icons */
-  }
-
-  .navigation {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #0f0f13;
-    width: 100%;
-    padding: 1rem 0;
-    z-index: 999;
-    text-align: center;
-  }
-
-  .navigation.show {
-    display: flex;
-  }
-
-  #burger-menu {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
   }
 }
 
