@@ -371,18 +371,16 @@ footer {
 /* Breakpoints*/
 /* ################### */
 
-@media screen and (max-width: 600px) {
-  .footer-box {
-    align-items: center;
-    text-align: center;
+@media screen and (max-width: 998px) {
+  header {
+    padding: 2rem 1rem;
   }
-
-  .footer-box a {
+  .section {
+    padding: 50px 4%;
+  }
+  #burger-menu {
     display: block;
-    margin-bottom: 6px;
   }
-}
-
 
   .navigation {
     flex-direction: column;
@@ -586,6 +584,18 @@ p, a, button {
   line-height: 1.6;
 }
 
+/* Platform logos fix */
+.platform-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.platform-logos img {
+  width: 60px;
+  height: auto;
+}
 
 /* Footer social icons */
 .footer-social {
@@ -671,7 +681,25 @@ p, a, button {
 }
 
 
+.platform-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+}
 
+.platform-logos img,
+.platform-logos .platform-icon {
+  width: 80px;
+  height: auto;
+  filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+  .platform-logos img {
+    width: 60px;
+  }
+}
 
 
 /* Desktop Nav - default */
@@ -714,42 +742,6 @@ p, a, button {
     top: 20px;
     right: 20px;
     z-index: 1000;
-  }
-}
-
-
-
-
-/* Make platform logos responsive and consistent */
-.logos-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin: 40px auto;
-  padding: 20px;
-  max-width: 1000px;
-}
-
-.logos-container img {
-  width: 80px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Tablet fix */
-@media (max-width: 768px) {
-  .logos-container img {
-    width: 60px;
-  }
-}
-
-/* Mobile fix */
-@media (max-width: 480px) {
-  .logos-container img {
-    width: 45px;
   }
 }
 
