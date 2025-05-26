@@ -46,24 +46,29 @@ window.addEventListener("resize", () => {
 
 // ✅ Scroll spy – highlight active nav link
 const scrollActive = () => {
+  const scrollPosition = window.scrollY;
   sections.forEach((section) => {
-    let top = window.scrollY;
-    let offset = section.offsetTop - 150;
-    let height = section.offsetHeight;
-    let id = section.getAttribute("id");
+    const sectionTop = section.offsetTop - 150; // Offset to trigger early
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
 
-    if (top >= offset && top < offset + height) {
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
       linkNav.forEach((link) => {
         link.classList.remove("active");
-        document
-          .querySelector(`.navigation a[href*="${id}"]`)
-          .classList.add("active");
       });
+      const activeLink = document.querySelector(`.navigation a[href*="${sectionId}"]`);
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
     }
   });
 };
 
-window.addEventListener("scroll", scrollActive);
+// Ensure scrollActive runs on page load and scroll
+document.addEventListener("DOMContentLoaded", () => {
+  scrollActive(); // Run once on load to set initial active state
+  window.addEventListener("scroll", scrollActive); // Attach scroll event
+});
 
 // ✅ Swiper Carousel
 var mySwiper = new Swiper(".swiper", {
@@ -83,37 +88,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('bgm');
   const button = document.getElementById('playMusicBtn');
 
-  if (!audio || !button) {
-    console.error('Audio or button element not found');
-    return;
-  }
+  button.style.display = 'block';
 
-  // Accurate check: is the music currently playing?
+  audio.addEventListener('error', () => {
+    console.error('Audio file failed to load');
+    button.textContent = '❌ Audio Not Found';
+  });
+
   function isAudioPlaying(audioElement) {
     return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
   }
 
-  // Button click toggles play/pause
   button.addEventListener('click', () => {
     if (isAudioPlaying(audio)) {
       audio.pause();
       button.textContent = '🔊 Play Music';
-      button.style.opacity = '1';
     } else {
       audio.play().then(() => {
         button.textContent = '⏸️ Pause Music';
-        button.style.opacity = '1';
       }).catch(err => {
         console.error('Playback error:', err);
-        button.textContent = '❌ Tap to Start Music'; // Prompt user to interact
+        button.textContent = '❌ Failed to Play';
       });
     }
   });
-
-  // Initial state check
-  if (isAudioPlaying(audio)) {
-    button.textContent = '⏸️ Pause Music';
-  } else {
-    button.textContent = '🔊 Play Music';
-  }
 });
