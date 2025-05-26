@@ -329,7 +329,7 @@ footer {
 
 .footer-box {
   display: flex;
-  flex-direction: column; /* Ensure vertical stacking */
+  flex-direction: column;
 }
 
 .footer-box h6 {
@@ -435,15 +435,15 @@ footer {
 #music-toggle {
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  font-size: 1.5rem;
-  background-color: #1f1f1f;
+  left: 20px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
   color: white;
-  border: 2px solid #f59cc2;
-  border-radius: 50px;
-  padding: 0.5rem 0.8rem;
-  z-index: 999;
+  padding: 10px 15px;
   cursor: pointer;
+  border-radius: 8px;
+  z-index: 9999;
   transition: all 0.3s ease;
 }
 
@@ -451,8 +451,6 @@ footer {
   background-color: #f59cc2;
   color: #1f1f1f;
 }
-
-
 
 /* ################### */
 /* Platform Logos */
@@ -547,7 +545,7 @@ footer {
   }
 
   .footer-box a { /* Target links (Home, Watch Trailer, etc.) */
-    display: block; /* Stack vertically for consistency */
+    display: inline-block; /* Match your new style */
     font-size: 1rem; /* Adjust font size for readability */
     margin: 0.2rem 0; /* Match your new style */
     padding: 0.2rem 0; /* Match your new style */
@@ -644,20 +642,4 @@ footer {
   .copy {
     font-size: 10px; /* Slightly larger for readability */
   }
-}
-
-  /* Adjust music toggle button for mobile */
- /* Music Button */
-#music-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 9999;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid white;
-  color: white;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
 }
