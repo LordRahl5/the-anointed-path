@@ -1,3 +1,4 @@
+
 const sections = document.querySelectorAll("section");
 const header = document.querySelector("header");
 const btnBurger = document.querySelector("#burger-menu");
