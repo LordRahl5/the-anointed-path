@@ -85,20 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button.style.display = "block";
 
-  function isAudioPlaying(audioElement) {
-    return (
-      !audioElement.paused &&
-      !audioElement.ended &&
-      audioElement.currentTime > 0
-    );
-  }
-
   button.addEventListener("click", () => {
-    if (isAudioPlaying(audio)) {
-      audio.pause();
-      button.textContent = "🔊 Play Music";
-      button.style.opacity = "1";
-    } else {
+    if (audio.paused) {
       audio
         .play()
         .then(() => {
@@ -109,6 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Playback error:", err);
           button.textContent = "❌ Failed to Play";
         });
+    } else {
+      audio.pause();
+      button.textContent = "🔊 Play Music";
+      button.style.opacity = "1";
     }
   });
 });
