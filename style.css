@@ -588,14 +588,19 @@ p, a, button {
 .logos-container {
   display: flex;
   justify-content: center;
-  gap: 80px;
-  margin: 80px 0;
+  align-items: center;
+  gap: 60px;
+  margin: 50px auto;
+  padding: 20px;
 }
 
 .logos-container img {
-  width: 90px;
-  height: auto;
-  filter: brightness(1.1);
+  width: 100px !important;
+  height: auto !important;
+  max-width: unset !important;
+  display: inline-block;
+  object-fit: contain;
+  filter: brightness(1.2);
 }
 
 
