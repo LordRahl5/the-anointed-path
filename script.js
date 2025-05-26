@@ -1,31 +1,36 @@
-
+// Section scroll tracking
 const sections = document.querySelectorAll("section");
 const header = document.querySelector("header");
 const btnBurger = document.querySelector("#burger-menu");
 const nav = document.querySelector(".navigation");
 const linkNav = document.querySelectorAll(".navigation a");
 
+// ✅ Toggle mobile menu
 btnBurger.addEventListener("click", () => {
-  nav.classList.toggle("active");
+  nav.classList.toggle("show");
   btnBurger.classList.toggle("bx-x");
 });
 
+// ✅ Close mobile menu when link is clicked
 linkNav.forEach((link) => {
   link.addEventListener("click", () => {
-    nav.classList.remove("active");
+    nav.classList.remove("show");
     btnBurger.classList.remove("bx-x");
   });
 });
 
+// ✅ Close on scroll
 window.addEventListener("scroll", () => {
-  nav.classList.remove("active");
+  nav.classList.remove("show");
   btnBurger.classList.remove("bx-x");
 });
 
+// ✅ Desktop header animation
 const handleScroll = () => {
   header.classList.toggle("active", window.scrollY > 1000);
 };
 
+// ✅ Enable scroll animation for large screens only
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 1024) {
     window.addEventListener("scroll", handleScroll);
@@ -34,6 +39,7 @@ window.addEventListener("resize", () => {
   }
 });
 
+// ✅ Scroll spy – highlight active nav link
 const scrollActive = () => {
   sections.forEach((section) => {
     let top = window.scrollY;
@@ -42,23 +48,23 @@ const scrollActive = () => {
     let id = section.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
-      linkNav.forEach((links) => {
-        links.classList.remove("active");
+      linkNav.forEach((link) => {
+        link.classList.remove("active");
         document
-          .querySelector(`.navigation a[href*=${id}]`)
+          .querySelector(`.navigation a[href*="${id}"]`)
           .classList.add("active");
       });
     }
   });
 };
 
-
 window.addEventListener("scroll", scrollActive);
 
+// ✅ Swiper Carousel
 var mySwiper = new Swiper(".swiper", {
-  loop: true, // Active la boucle infinie
+  loop: true,
   autoplay: {
-    delay: 3000, 
+    delay: 3000,
     disableOnInteraction: false,
   },
   pagination: {
@@ -67,42 +73,37 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bgm');
-    const button = document.getElementById('playMusicBtn');
+// ✅ Music player toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgm");
+  const button = document.getElementById("playMusicBtn");
 
-    // Always show the button
-    button.style.display = 'block';
+  button.style.display = "block";
 
-    // Accurate check: is the music currently playing?
-    function isAudioPlaying(audioElement) {
-      return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
-    }
+  function isAudioPlaying(audioElement) {
+    return (
+      !audioElement.paused &&
+      !audioElement.ended &&
+      audioElement.currentTime > 0
+    );
+  }
 
-    // Button click toggles play/pause
-    button.addEventListener('click', () => {
-      if (isAudioPlaying(audio)) {
-        audio.pause();
-        button.textContent = '🔊 Play Music';
-        button.style.opacity = '1';
-      } else {
-        audio.play().then(() => {
-          button.textContent = '⏸️ Pause Music';
-          button.style.opacity = '1';
-        }).catch(err => {
-          console.error('Playback error:', err);
-          button.textContent = '❌ Failed to Play';
+  button.addEventListener("click", () => {
+    if (isAudioPlaying(audio)) {
+      audio.pause();
+      button.textContent = "🔊 Play Music";
+      button.style.opacity = "1";
+    } else {
+      audio
+        .play()
+        .then(() => {
+          button.textContent = "⏸️ Pause Music";
+          button.style.opacity = "1";
+        })
+        .catch((err) => {
+          console.error("Playback error:", err);
+          button.textContent = "❌ Failed to Play";
         });
-      }
-    });
+    }
   });
-</script>
-
-
-const menuBtn = document.querySelector('.bx-menu');
-const mobileMenu = document.querySelector('.mobile-nav');
-
-menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
 });
