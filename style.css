@@ -554,3 +554,128 @@ footer {
   background-color: #f59cc2;
   color: #1f1f1f;
 }
+
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font setup */
+body {
+  font-family: 'Cinzel', serif;
+  background-color: #0f0f13;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: 'Cinzel', serif;
+}
+
+/* Paragraphs */
+p, a, button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Platform logos fix */
+.platform-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.platform-logos img {
+  width: 60px;
+  height: auto;
+}
+
+/* Footer social icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.footer-social i {
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-social i:hover {
+  color: gold;
+}
+
+/* Music Button */
+#music-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid white;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Mobile Nav */
+.bx-menu {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #111;
+  z-index: 9998;
+  padding: 20px;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+.mobile-nav a:hover {
+  color: gold;
+}
+
+/* Show mobile menu when toggled */
+.mobile-nav.active {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bx-menu {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+  }
+
+  nav ul {
+    display: none;
+  }
+}
