@@ -362,19 +362,19 @@ footer {
 
 .footer-social {
   display: flex;
-  justify-content: center; /* Center the icons horizontally */
+  justify-content: center;
   align-items: center;
-  column-gap: 1.5rem; /* Increased gap for better spacing */
-  margin: 1rem 0; /* Add vertical margin for spacing */
+  column-gap: 1.5rem;
+  margin: 1rem 0;
 }
 
 .footer-social .bx {
-  padding: 15px; /* Increased padding to make icons larger */
-  font-size: 1.5rem; /* Increased font size for larger icons */
+  padding: 15px;
+  font-size: 1.5rem;
   color: whitesmoke;
   border-radius: 50px;
   cursor: pointer;
-  transition: color 0.3s ease; /* Smooth hover transition */
+  transition: color 0.3s ease;
 }
 
 .footer-social .bx:hover {
@@ -485,6 +485,18 @@ footer {
 /* Breakpoints */
 /* ################### */
 
+/* Desktop screens (above 1024px) */
+@media screen and (min-width: 1025px) {
+  .footer-social .bx {
+    padding: 20px; /* Larger padding for bigger icons on desktop */
+    font-size: 2rem; /* Larger font size for desktop */
+  }
+
+  .footer-social {
+    column-gap: 2rem; /* Slightly larger gap on desktop */
+  }
+}
+
 /* Medium screens (tablets and iPads, up to 1024px) */
 @media screen and (max-width: 1024px) {
   header {
@@ -566,7 +578,7 @@ footer {
   }
 
   .footer-social {
-    justify-content: center; /* Ensure centering on mobile */
+    justify-content: center;
     column-gap: 1.5rem;
   }
 
@@ -700,7 +712,7 @@ footer {
   }
 
   .footer-social {
-    justify-content: center; /* Ensure centering on extra small screens */
+    justify-content: center;
     column-gap: 1.5rem;
   }
 
