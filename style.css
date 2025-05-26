@@ -371,16 +371,18 @@ footer {
 /* Breakpoints*/
 /* ################### */
 
-@media screen and (max-width: 998px) {
-  header {
-    padding: 2rem 1rem;
+@media screen and (max-width: 600px) {
+  .footer-box {
+    align-items: center;
+    text-align: center;
   }
-  .section {
-    padding: 50px 4%;
-  }
-  #burger-menu {
+
+  .footer-box a {
     display: block;
+    margin-bottom: 6px;
   }
+}
+
 
   .navigation {
     flex-direction: column;
