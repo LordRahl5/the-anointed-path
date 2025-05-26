@@ -110,5 +110,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 .footer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+
+.footer-box a {
+  margin: 0.2rem 0;
+  padding: 0.2rem 0;
+  display: inline-block;
 }
