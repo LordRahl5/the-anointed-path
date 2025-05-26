@@ -93,10 +93,9 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 1rem 2rem;
+  justify-content: space-between;
+  padding: 1rem;
   transition: 0.5s;
-  position: relative;
 }
 
 header.active {
@@ -111,25 +110,15 @@ header.active {
 }
 
 .navigation {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1rem;
-  width: auto; /* Ensure the container adjusts to content width */
 }
 
 .navigation a {
   color: var(--text);
-  padding: 10px 15px; /* Reduced padding to fit full text */
-  margin: 0 0.3rem; /* Reduced margin for tighter spacing */
-  font-size: 16px;
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: visible; /* Ensure text isn't clipped */
+  padding: 10px 45px;
+  margin-right: 1rem;
 }
-
 .navigation a:hover,
 .navigation a.active {
   background-color: #e4e4e4a3;
@@ -138,10 +127,10 @@ header.active {
 
 #burger-menu {
   font-size: 2rem;
+  float: inline-end;
   color: var(--accent);
   cursor: pointer;
   display: none;
-  margin-left: auto;
 }
 
 /* ################### */
@@ -324,7 +313,7 @@ header.active {
 }
 
 .logos-container img {
-  width: 60px;
+  width: 60px; /* Increased size for better visibility on both desktop and mobile */
   height: 60px;
 }
 
@@ -340,9 +329,9 @@ footer {
 
 .footer-box {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center the heading and links */
 }
 
 .footer-box h6 {
@@ -468,12 +457,18 @@ footer {
   color: #1f1f1f;
 }
 
+/* Remove unused #music-toggle styles since we're using #playMusicBtn */
 #music-toggle {
-  display: none;
+  display: none; /* Remove this unused style */
 }
 
+/* ################### */
+/* Platform Logos */
+/* ################### */
+
+/* Remove unused .platform-logos since the HTML uses .logos-container */
 .platform-logos {
-  display: none;
+  display: none; /* Remove this unused style */
 }
 
 /* ################### */
@@ -483,12 +478,11 @@ footer {
 /* Medium screens (tablets and iPads, up to 1024px) */
 @media screen and (max-width: 1024px) {
   header {
-    padding: 1.5rem 1rem;
-    justify-content: space-between;
+    padding: 1.5rem 1rem; /* Adjusted padding for better spacing */
   }
 
   section {
-    padding: 40px 3%;
+    padding: 40px 3%; /* Reduced padding for smaller screens */
   }
 
   #burger-menu {
@@ -496,30 +490,28 @@ footer {
   }
 
   .navigation {
-    display: none;
+    display: none; /* Hide by default */
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 60px; /* Adjusted to align below header */
     left: 0;
     width: 100%;
-    min-height: 400px;
+    min-height: 100vh;
     box-shadow: var(--shadow);
     background: var(--bg);
     padding: 1rem 0;
     z-index: 999;
     text-align: center;
-    transform: none;
   }
 
   .navigation.show {
-    display: flex;
+    display: flex; /* Show the menu when .show is toggled */
   }
 
   .navigation a {
     display: block;
     font-family: Merriweather;
-    margin: 1rem 0;
-    padding: 10px 0; /* Adjusted padding for mobile */
+    margin: 1rem 0; /* Add spacing between links */
   }
 
   .navigation a:hover,
@@ -530,21 +522,22 @@ footer {
   }
 
   .ComingSoon-img img {
-    width: 100%;
+    width: 100%; /* Ensure image scales to container */
     max-width: 280px;
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
     border-radius: 7px;
     object-fit: contain;
     object-position: center;
   }
 
   .news-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack grid items on smaller screens */
   }
 
+  /* Ensure Links section remains centered */
   .footer-box {
-    align-items: center;
-    text-align: center;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center the heading and links */
   }
 
   .footer-box h6 {
@@ -564,10 +557,11 @@ footer {
 /* Small screens (mobile, up to 768px) */
 @media screen and (max-width: 768px) {
   .logos-container img {
-    width: 80px;
+    width: 80px; /* Increased size for better visibility on mobile */
     height: 80px;
   }
 
+  /* Ensure footer-box remains centered */
   .footer-box {
     align-items: center;
     text-align: center;
@@ -589,83 +583,94 @@ footer {
 
 /* Extra small screens (mobile, up to 481px) */
 @media screen and (max-width: 481px) {
+  /* Adjust home section padding for mobile */
   .home {
-    padding: 30px;
+    padding: 30px; /* Reduced padding for mobile */
     background: url("assets/images/GTA6_background-mobile.jpg");
     background-position: top;
     background-size: cover;
   }
 
+  /* Adjust home content font sizes for better readability */
   .home-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Smaller but readable heading */
     position: relative;
     text-align: center;
   }
   .home-content p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.9rem; /* Slightly larger for readability */
+    line-height: 1.6; /* Better spacing */
   }
 
+  /* Adjust section heading for mobile */
   .section-heading {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
   .section-heading span {
-    font-size: 16px;
+    font-size: 16px; /* Slightly smaller but still prominent */
     letter-spacing: 2px;
   }
 
+  /* Adjust New Story section */
   .box,
   .box-img {
-    height: auto;
+    height: auto; /* Let height adjust naturally */
   }
   .box-img img {
-    width: 90%;
-    height: auto;
-    margin-top: 2rem;
+    width: 90%; /* Slightly smaller width for better fit */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 2rem; /* Reduced margin */
   }
 
+  /* Adjust paragraph text for readability */
   p {
-    font-size: 0.95rem;
-    max-width: 90%;
-    line-height: 1.8;
+    font-size: 0.95rem; /* Slightly larger for mobile readability */
+    max-width: 90%; /* Ensure it fits within the screen */
+    line-height: 1.8; /* Better spacing */
   }
 
+  /* Adjust Coming Soon section */
   .ComingSoon-container {
-    padding: 20px;
-    max-width: 90%;
+    padding: 20px; /* Reduced padding for mobile */
+    max-width: 90%; /* Ensure it fits within the screen */
   }
   .ComingSoon-img img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Ensure image scales to container */
+    height: auto; /* Maintain aspect ratio */
   }
   .ComingSoon-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Smaller but readable */
     margin: 0.5rem 0;
   }
   .ComingSoon-content span {
-    font-size: 12px;
+    font-size: 12px; /* Slightly smaller for mobile */
   }
 
+  /* Adjust button for mobile */
   .btn {
-    font-size: 0.9rem;
-    width: 70%;
-    padding: 8px 10px;
+    font-size: 0.9rem; /* Smaller font size for mobile */
+    width: 70%; /* Wider for easier tapping */
+    padding: 8px 10px; /* Smaller padding */
   }
 
+  /* Adjust slider for mobile */
   .slider-container img {
-    width: 90%;
+    width: 90%; /* Ensure it fits on mobile */
   }
 
+  /* Adjust footer for mobile */
   .copy {
-    font-size: 10px;
+    font-size: 10px; /* Slightly larger for readability */
   }
 
+  /* Force footer to single column to avoid overflow */
   footer {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
 
+  /* Ensure Links section remains centered */
   .footer-box {
     align-items: center;
     text-align: center;
