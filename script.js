@@ -1,113 +1,50 @@
-// ✅ Section Scroll Tracking & Navigation
-const sections = document.querySelectorAll("section");
-const header = document.querySelector("header");
-const btnBurger = document.querySelector("#burger-menu");
-const nav = document.querySelector(".navigation");
-const linkNav = document.querySelectorAll(".navigation a");
-
-// ✅ Toggle Mobile Menu
-btnBurger.addEventListener("click", () => {
-  nav.classList.toggle("show");
-  btnBurger.classList.toggle("bx-x");
-});
-
-// ✅ Close Mobile Menu When a Link is Clicked
-linkNav.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show");
-    btnBurger.classList.remove("bx-x");
-  });
-});
-
-// ✅ Close Mobile Menu on Scroll
-window.addEventListener("scroll", () => {
-  nav.classList.remove("show");
-  btnBurger.classList.remove("bx-x");
-});
-
-// ✅ Desktop Header Scroll Animation
-const handleScroll = () => {
-  header.classList.toggle("active", window.scrollY > 1000);
-};
-
-if (window.innerWidth >= 1024) {
-  window.addEventListener("scroll", handleScroll);
-}
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 1024) {
-    window.addEventListener("scroll", handleScroll);
-  } else {
-    window.removeEventListener("scroll", handleScroll);
-  }
-});
-
-// ✅ Scroll Spy – Highlight Active Nav Link
-const scrollActive = () => {
-  sections.forEach((section) => {
-    let top = window.scrollY;
-    let offset = section.offsetTop - 150;
-    let height = section.offsetHeight;
-    let id = section.getAttribute("id");
-
-    if (top >= offset && top < offset + height) {
-      linkNav.forEach((link) => {
-        link.classList.remove("active");
-        const activeLink = document.querySelector(`.navigation a[href*="${id}"]`);
-        if (activeLink) activeLink.classList.add("active");
-      });
-    }
-  });
-};
-
-window.addEventListener("scroll", scrollActive);
-
-// ✅ Swiper Carousel
-var mySwiper = new Swiper(".swiper", {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-// ✅ Music Player Toggle
 document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgm");
   const button = document.getElementById("playMusicBtn");
 
-  if (audio && button) {
-    button.style.display = "block";
-
-    function isAudioPlaying(audioElement) {
-      return (
-        !audioElement.paused &&
-        !audioElement.ended &&
-        audioElement.currentTime > 0
-      );
-    }
-
-    button.addEventListener("click", () => {
-      if (isAudioPlaying(audio)) {
-        audio.pause();
-        button.textContent = "🔊 Play Music";
-        button.style.opacity = "1";
-      } else {
-        audio
-          .play()
-          .then(() => {
-            button.textContent = "⏸️ Pause Music";
-            button.style.opacity = "1";
-          })
-          .catch((err) => {
-            console.error("Playback error:", err);
-            button.textContent = "❌ Failed to Play";
-          });
-      }
-    });
+  if (!audio || !button) {
+    console.error("Music or button not found");
+    return;
   }
+
+  button.style.display = "block";
+
+  function isAudioPlaying(audioElement) {
+    return (
+      !audioElement.paused &&
+      !audioElement.ended &&
+      audioElement.currentTime > 0
+    );
+  }
+
+  button.addEventListener("click", () => {
+    console.log("Button clicked");
+    if (isAudioPlaying(audio)) {
+      console.log("Pausing audio...");
+      audio.pause();
+      button.textContent = "🔊 Play Music";
+      button.style.opacity = "1";
+    } else {
+      console.log("Playing audio...");
+      audio
+        .play()
+        .then(() => {
+          button.textContent = "⏸️ Pause Music";
+          button.style.opacity = "1";
+        })
+        .catch((err) => {
+          console.error("Playback error:", err);
+          button.textContent = "❌ Failed to Play";
+        });
+    }
+  });
+
+  // Optional: Update text if user pauses it via other means
+  audio.addEventListener("pause", () => {
+    button.textContent = "🔊 Play Music";
+  });
+
+  audio.addEventListener("play", () => {
+    button.textContent = "⏸️ Pause Music";
+  });
 });
