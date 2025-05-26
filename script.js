@@ -1,17 +1,17 @@
-// ✅ Section Scroll Tracking & Navigation
+// Section scroll tracking
 const sections = document.querySelectorAll("section");
 const header = document.querySelector("header");
 const btnBurger = document.querySelector("#burger-menu");
 const nav = document.querySelector(".navigation");
 const linkNav = document.querySelectorAll(".navigation a");
 
-// ✅ Toggle Mobile Menu
+// ✅ Toggle mobile menu
 btnBurger.addEventListener("click", () => {
   nav.classList.toggle("show");
   btnBurger.classList.toggle("bx-x");
 });
 
-// ✅ Close Mobile Menu on Link Click
+// ✅ Close mobile menu when link is clicked
 linkNav.forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("show");
@@ -19,21 +19,23 @@ linkNav.forEach((link) => {
   });
 });
 
-// ✅ Close Menu on Scroll
+// ✅ Close on scroll
 window.addEventListener("scroll", () => {
   nav.classList.remove("show");
   btnBurger.classList.remove("bx-x");
 });
 
-// ✅ Header Animation on Scroll (Desktop Only)
+// ✅ Desktop header animation
 const handleScroll = () => {
   header.classList.toggle("active", window.scrollY > 1000);
 };
 
+// ✅ Initialize scroll event listener based on initial window size
 if (window.innerWidth >= 1024) {
   window.addEventListener("scroll", handleScroll);
 }
 
+// ✅ Enable scroll animation for large screens only
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 1024) {
     window.addEventListener("scroll", handleScroll);
@@ -42,7 +44,7 @@ window.addEventListener("resize", () => {
   }
 });
 
-// ✅ Scroll Spy – Highlight Active Section
+// ✅ Scroll spy – highlight active nav link
 const scrollActive = () => {
   sections.forEach((section) => {
     let top = window.scrollY;
@@ -53,8 +55,9 @@ const scrollActive = () => {
     if (top >= offset && top < offset + height) {
       linkNav.forEach((link) => {
         link.classList.remove("active");
-        const activeLink = document.querySelector(`.navigation a[href*="${id}"]`);
-        if (activeLink) activeLink.classList.add("active");
+        document
+          .querySelector(`.navigation a[href*="${id}"]`)
+          .classList.add("active");
       });
     }
   });
@@ -75,30 +78,35 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-// ✅ Music Player Toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('bgm');
-  const button = document.getElementById('playMusicBtn');
+// ✅ Music player toggle
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bgm');
+    const button = document.getElementById('playMusicBtn');
 
-  if (!audio || !button) return;
+    // Always show the button
+    button.style.display = 'block';
 
-  button.style.display = 'block';
-
-  function isAudioPlaying(audioElement) {
-    return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
-  }
-
-  button.addEventListener('click', () => {
-    if (isAudioPlaying(audio)) {
-      audio.pause();
-      button.textContent = '🔊 Play Music';
-    } else {
-      audio.play().then(() => {
-        button.textContent = '⏸️ Pause Music';
-      }).catch(err => {
-        console.error('Playback error:', err);
-        button.textContent = '❌ Failed to Play';
-      });
+    // Accurate check: is the music currently playing?
+    function isAudioPlaying(audioElement) {
+      return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
     }
+
+    // Button click toggles play/pause
+    button.addEventListener('click', () => {
+      if (isAudioPlaying(audio)) {
+        audio.pause();
+        button.textContent = '🔊 Play Music';
+        button.style.opacity = '1';
+      } else {
+        audio.play().then(() => {
+          button.textContent = '⏸️ Pause Music';
+          button.style.opacity = '1';
+        }).catch(err => {
+          console.error('Playback error:', err);
+          button.textContent = '❌ Failed to Play';
+        });
+      }
+    });
   });
-});
+</script>
