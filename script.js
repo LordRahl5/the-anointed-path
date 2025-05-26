@@ -4,7 +4,6 @@ const btnBurger = document.querySelector("#burger-menu");
 const nav = document.querySelector(".navigation");
 const linkNav = document.querySelectorAll(".navigation a");
 
-
 btnBurger.addEventListener("click", () => {
   nav.classList.toggle("active");
   btnBurger.classList.toggle("bx-x");
@@ -106,4 +105,3 @@ const mobileMenu = document.querySelector('.mobile-nav');
 menuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
 });
-
