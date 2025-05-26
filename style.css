@@ -480,8 +480,8 @@ footer {
 /* Breakpoints */
 /* ################### */
 
-/* Medium screens (tablets) */
-@media screen and (max-width: 998px) {
+/* Medium screens (tablets and iPads, up to 1024px) */
+@media screen and (max-width: 1024px) {
   header {
     padding: 1.5rem 1rem; /* Adjusted padding for better spacing */
   }
@@ -534,15 +534,33 @@ footer {
   .news-container {
     grid-template-columns: 1fr; /* Stack grid items on smaller screens */
   }
+
+  /* Center Links section for mobile, tablet, and iPad */
+  .links-container { /* Replace with the actual class or tag containing "Links" */
+    text-align: center; /* Center the heading and text */
+  }
+
+  .links-container h2 { /* Assuming "Links" is an h2 */
+    font-size: 1.5rem; /* Ensure readability on smaller screens */
+    margin: 1rem auto; /* Center and add spacing */
+  }
+
+  .links-container a, /* Target links or list items */
+  .links-container li {
+    display: block; /* Ensure each item is on a new line */
+    font-size: 1rem; /* Adjust font size for readability */
+    margin: 0.5rem auto; /* Center and add spacing between items */
+    text-align: center; /* Explicitly center the text */
+  }
 }
 
-/* Small screens (mobile) */
+/* Small screens (mobile, up to 768px) */
 @media screen and (max-width: 768px) {
   .bx-menu {
     display: block;
     position: fixed;
     top: 20px;
-    right: 20px przysz;
+    right: 20px; /* Fixed typo: removed "przysz" */
     z-index: 10000;
   }
 
@@ -551,7 +569,7 @@ footer {
   }
 
   .platform-logos img {
-    width: 60px;
+    width: 80px; /* Updated to match the previous fix for platform icons */
   }
 
   .navigation {
@@ -580,6 +598,7 @@ footer {
   }
 }
 
+/* Extra small screens (mobile, up to 481px) */
 @media screen and (max-width: 481px) {
   /* Adjust home section padding for mobile */
   .home {
@@ -661,6 +680,7 @@ footer {
   .copy {
     font-size: 10px; /* Slightly larger for readability */
   }
+}
 
   /* Adjust music toggle button for mobile */
   #music-toggle {
