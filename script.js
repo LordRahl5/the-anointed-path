@@ -107,3 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+.footer-box {
+  text-align: center;
+}
