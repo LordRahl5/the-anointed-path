@@ -701,3 +701,46 @@ p, a, button {
   }
 }
 
+
+/* Desktop Nav - default */
+.navigation {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Burger Icon - hidden by default */
+#burger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #0f0f13;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 999;
+    text-align: center;
+  }
+
+  .navigation.show {
+    display: flex;
+  }
+
+  #burger-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+}
