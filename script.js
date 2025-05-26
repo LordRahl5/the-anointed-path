@@ -44,7 +44,7 @@ window.addEventListener("resize", () => {
   }
 });
 
-// ✅ Scroll spy – highlight active nav link
+// ✅ Scroll spy – highlight active nav link (Restored from original)
 const scrollActive = () => {
   sections.forEach((section) => {
     let top = window.scrollY;
@@ -53,8 +53,8 @@ const scrollActive = () => {
     let id = section.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
-      linkNav.forEach((link) => {
-        link.classList.remove("active");
+      linkNav.forEach((links) => {
+        links.classList.remove("active");
         document
           .querySelector(`.navigation a[href*="${id}"]`)
           .classList.add("active");
@@ -63,6 +63,7 @@ const scrollActive = () => {
   });
 };
 
+// Attach the scroll event listener directly (as in the original)
 window.addEventListener("scroll", scrollActive);
 
 // ✅ Swiper Carousel
@@ -78,42 +79,35 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-// ✅ Music player toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('bgm');
-  const button = document.getElementById('playMusicBtn');
+// ✅ Music player toggle (Updated version from previous changes)
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgm");
+  const button = document.getElementById("playMusicBtn");
 
-  if (!audio || !button) {
-    console.error('Audio or button element not found');
-    return;
-  }
+  button.style.display = "block";
 
-  // Accurate check: is the music currently playing?
+  audio.addEventListener("error", () => {
+    console.error("Audio file failed to load");
+    button.textContent = "❌ Audio Not Found";
+  });
+
   function isAudioPlaying(audioElement) {
     return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
   }
 
-  // Button click toggles play/pause
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     if (isAudioPlaying(audio)) {
       audio.pause();
-      button.textContent = '🔊 Play Music';
-      button.style.opacity = '1';
+      button.textContent = "🔊 Play Music";
     } else {
-      audio.play().then(() => {
-        button.textContent = '⏸️ Pause Music';
-        button.style.opacity = '1';
-      }).catch(err => {
-        console.error('Playback error:', err);
-        button.textContent = '❌ Tap to Start Music'; // Prompt user to interact
-      });
+      audio.play()
+        .then(() => {
+          button.textContent = "⏸️ Pause Music";
+        })
+        .catch((err) => {
+          console.error("Playback error:", err);
+          button.textContent = "❌ Failed to Play";
+        });
     }
   });
-
-  // Initial state check
-  if (isAudioPlaying(audio)) {
-    button.textContent = '⏸️ Pause Music';
-  } else {
-    button.textContent = '🔊 Play Music';
-  }
 });
