@@ -7,7 +7,7 @@ const linkNav = document.querySelectorAll(".navigation a");
 
 // ✅ Toggle mobile menu
 btnBurger.addEventListener("click", () => {
-  nav.classList.toggle("show"); // Changed to "show" to match CSS
+  nav.classList.toggle("show");
   btnBurger.classList.toggle("bx-x");
 });
 
@@ -44,7 +44,7 @@ window.addEventListener("resize", () => {
   }
 });
 
-// ✅ Scroll spy – highlight active nav link (Restored from original)
+// ✅ Scroll spy – highlight active nav link
 const scrollActive = () => {
   sections.forEach((section) => {
     let top = window.scrollY;
@@ -53,17 +53,16 @@ const scrollActive = () => {
     let id = section.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
-      linkNav.forEach((links) => {
-        links.classList.remove("active");
+      linkNav.forEach((link) => {
+        link.classList.remove("active");
         document
-          .querySelector(`.navigation a[href*=${id}]`)
+          .querySelector(`.navigation a[href*="${id}"]`)
           .classList.add("active");
       });
     }
   });
 };
 
-// Attach the scroll event listener directly (as in the original)
 window.addEventListener("scroll", scrollActive);
 
 // ✅ Swiper Carousel
@@ -79,33 +78,42 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-// ✅ Music player toggle (Updated version from previous changes)
+// ✅ Music player toggle
 document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('bgm');
   const button = document.getElementById('playMusicBtn');
 
-  button.style.display = 'block';
+  if (!audio || !button) {
+    console.error('Audio or button element not found');
+    return;
+  }
 
-  audio.addEventListener('error', () => {
-    console.error('Audio file failed to load');
-    button.textContent = '❌ Audio Not Found';
-  });
-
+  // Accurate check: is the music currently playing?
   function isAudioPlaying(audioElement) {
     return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
   }
 
+  // Button click toggles play/pause
   button.addEventListener('click', () => {
     if (isAudioPlaying(audio)) {
       audio.pause();
       button.textContent = '🔊 Play Music';
+      button.style.opacity = '1';
     } else {
       audio.play().then(() => {
         button.textContent = '⏸️ Pause Music';
+        button.style.opacity = '1';
       }).catch(err => {
         console.error('Playback error:', err);
-        button.textContent = '❌ Failed to Play';
+        button.textContent = '❌ Tap to Start Music'; // Prompt user to interact
       });
     }
   });
+
+  // Initial state check
+  if (isAudioPlaying(audio)) {
+    button.textContent = '⏸️ Pause Music';
+  } else {
+    button.textContent = '🔊 Play Music';
+  }
 });
