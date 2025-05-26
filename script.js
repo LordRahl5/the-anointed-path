@@ -79,34 +79,36 @@ var mySwiper = new Swiper(".swiper", {
 });
 
 // ✅ Music player toggle
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bgm');
-    const button = document.getElementById('playMusicBtn');
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgm");
+  const button = document.getElementById("playMusicBtn");
 
-    // Always show the button
-    button.style.display = 'block';
+  button.style.display = "block";
 
-    // Accurate check: is the music currently playing?
-    function isAudioPlaying(audioElement) {
-      return !audioElement.paused && !audioElement.ended && audioElement.currentTime > 0;
-    }
+  function isAudioPlaying(audioElement) {
+    return (
+      !audioElement.paused &&
+      !audioElement.ended &&
+      audioElement.currentTime > 0
+    );
+  }
 
-    // Button click toggles play/pause
-    button.addEventListener('click', () => {
-      if (isAudioPlaying(audio)) {
-        audio.pause();
-        button.textContent = '🔊 Play Music';
-        button.style.opacity = '1';
-      } else {
-        audio.play().then(() => {
-          button.textContent = '⏸️ Pause Music';
-          button.style.opacity = '1';
-        }).catch(err => {
-          console.error('Playback error:', err);
-          button.textContent = '❌ Failed to Play';
+  button.addEventListener("click", () => {
+    if (isAudioPlaying(audio)) {
+      audio.pause();
+      button.textContent = "🔊 Play Music";
+      button.style.opacity = "1";
+    } else {
+      audio
+        .play()
+        .then(() => {
+          button.textContent = "⏸️ Pause Music";
+          button.style.opacity = "1";
+        })
+        .catch((err) => {
+          console.error("Playback error:", err);
+          button.textContent = "❌ Failed to Play";
         });
-      }
-    });
+    }
   });
-</script>
+});
