@@ -2,7 +2,7 @@ const sections = document.querySelectorAll("section");
 const header = document.querySelector("header");
 const btnBurger = document.querySelector("#burger-menu");
 const nav = document.querySelector(".navigation");
-const linkNav = document.querySelectorAll(".navigation a");
+const nav = document.getElementById("nav-links");
 
 btnBurger.addEventListener("click", () => {
   nav.classList.toggle("active");
