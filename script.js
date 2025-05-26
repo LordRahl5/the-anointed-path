@@ -7,6 +7,7 @@ const linkNav = document.querySelectorAll(".navigation a");
 
 // ✅ Toggle mobile menu
 btnBurger.addEventListener("click", () => {
+  console.log("Burger clicked");
   nav.classList.toggle("show");
   btnBurger.classList.toggle("bx-x");
 });
@@ -29,11 +30,6 @@ window.addEventListener("scroll", () => {
 const handleScroll = () => {
   header.classList.toggle("active", window.scrollY > 1000);
 };
-
-// ✅ Initialize scroll event listener based on initial window size
-if (window.innerWidth >= 1024) {
-  window.addEventListener("scroll", handleScroll);
-}
 
 // ✅ Enable scroll animation for large screens only
 window.addEventListener("resize", () => {
