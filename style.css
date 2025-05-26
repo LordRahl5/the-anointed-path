@@ -681,25 +681,7 @@ p, a, button {
 }
 
 
-.platform-logos {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  margin: 50px 0;
-}
 
-.platform-logos img,
-.platform-logos .platform-icon {
-  width: 90px;
-  height: auto;
-  filter: brightness(1.1);
-}
-
-@media (max-width: 768px) {
-  .platform-logos img {
-    width: 90px;
-  }
-}
 
 
 /* Desktop Nav - default */
