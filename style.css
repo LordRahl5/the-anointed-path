@@ -733,3 +733,25 @@ p, a, button {
     z-index: 1000;
   }
 }
+
+
+/* Platform logos override fix */
+.logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.logos-container img {
+  width: 100px !important;
+  height: auto !important;
+  max-width: unset !important;
+  object-fit: contain;
+  display: inline-block;
+  filter: brightness(1.2);
+  border: 2px solid red; /* TEMP test */
+}
+
