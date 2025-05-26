@@ -24,83 +24,78 @@
     <title>THE ANOINTED PATH</title>
   </head>
   <body>
+
     <!-- ################## -->
     <!-- Navigation -->
     <!-- ################## -->
 
     <header>
-  <a href="#" class="logo">
-    <img src="assets/images/logo-header.png" alt="The Anointed Path Logo" />
-  </a>
+      <a href="#" class="logo">
+        <img src="assets/images/logo-header.png" alt="The Anointed Path Logo" />
+      </a>
 
-  <!-- Hamburger Icon -->
-  <div id="burger-menu" class="bx bx-menu"></div>
+      <!-- Hamburger Icon -->
+      <div id="burger-menu" class="bx bx-menu"></div>
 
-  <!-- Navigation Links -->
-  <ul class="navigation" id="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#news">New Story</a></li>
-    <li><a href="#WatchTrailer">Watch Trailer</a></li>
-    <li><a href="#Gameplay">Gameplay</a></li>
-    <li><a href="#ComingSoon">Coming Soon</a></li>
-  </ul>
-</header>
+      <!-- Navigation Links -->
+      <ul class="navigation" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">New Story</a></li>
+        <li><a href="#WatchTrailer">Watch Trailer</a></li>
+        <li><a href="#Gameplay">Gameplay</a></li>
+        <li><a href="#ComingSoon">Coming Soon</a></li>
+      </ul>
+    </header>
 
+    <!-- Music Audio -->
+    <audio id="bgm" src="audio/Hallowed-Light.mp3" loop></audio>
 
-<!-- Music Audio -->
-<audio id="bgm" src="audio/Hallowed-Light.mp3" loop></audio>
+    <!-- Toggle Music Button -->
+    <button id="playMusicBtn" style="
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      z-index: 9999;
+      transition: all 0.3s ease;
+      opacity: 1;
+    ">
+      🔊 Play Music
+    </button>
 
-<!-- Music Audio -->
-<audio id="bgm" src="audio/Hallowed-Light.mp3" loop></audio>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('bgm');
+        const button = document.getElementById('playMusicBtn');
 
-<!-- Toggle Music Button -->
-<button id="playMusicBtn" style="
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
-  cursor: pointer;
-  z-index: 9999;
-  transition: all 0.3s ease;
-  opacity: 1;
-">
-  🔊 Play Music
-</button>
+        // Don't disable the button — ever
+        button.disabled = false;
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bgm');
-    const button = document.getElementById('playMusicBtn');
+        function toggleMusic() {
+          if (audio.paused) {
+            audio.play().then(() => {
+              button.textContent = '⏸️ Pause Music';
+            }).catch(err => {
+              console.error('Playback failed:', err);
+              button.textContent = '❌ Could Not Play';
+            });
+          } else {
+            audio.pause();
+            button.textContent = '🔊 Play Music';
+          }
+        }
 
-    // Don't disable the button — ever
-    button.disabled = false;
-
-    function toggleMusic() {
-      if (audio.paused) {
-        audio.play().then(() => {
-          button.textContent = '⏸️ Pause Music';
-        }).catch(err => {
-          console.error('Playback failed:', err);
-          button.textContent = '❌ Could Not Play';
-        });
-      } else {
-        audio.pause();
-        button.textContent = '🔊 Play Music';
-      }
-    }
-
-    button.addEventListener('click', toggleMusic);
-  });
-</script>
-
-
+        button.addEventListener('click', toggleMusic);
+      });
+    </script>
 
     <!-- ################## -->
     <!-- home-->
@@ -166,48 +161,43 @@
         <span>Watch Trailer</span>
       </div>
 
-
-      <section class="trailer" id="WatchTrailer">
-        <div class="videoContainer">
-          <div class="videoMP4">
-            <iframe
-              class="videoControl"
-              src="https://www.youtube.com/embed/CQYXRisbgbo?rel=0&modestbranding=1"
-              title="The Anointed Path Trailer"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+      <div class="videoContainer">
+        <div class="videoMP4">
+          <iframe
+            class="videoControl"
+            src="https://www.youtube.com/embed/CQYXRisbgbo?rel=0&modestbranding=1"
+            title="The Anointed Path Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
-      </section>
-      
+      </div>
+    </section>
 
-<!-- ################### -->
-<!-- Path Selector -->
-<!-- ################### -->
+    <!-- ################### -->
+    <!-- Path Selector -->
+    <!-- ################### -->
 
-<section class="path-selector" id="pathSelector">
-  <h2>Choose Your Path</h2>
-  <div class="paths">
-    <a href="javascript:void(0)" class="path" data-tooltip="Serve the light, bear the burden.">Anointed</a>
-    <a href="javascript:void(0)" class="path" data-tooltip="Embrace power. Burn the veil.">Fallen</a>
-    <a href="javascript:void(0)" class="path" data-tooltip="Make your own fate.">Wanderer</a>
-  </div>
-</section>
+    <section class="path-selector" id="pathSelector">
+      <h2>Choose Your Path</h2>
+      <div class="paths">
+        <a href="javascript:void(0)" class="path" data-tooltip="Serve the light, bear the burden.">Anointed</a>
+        <a href="javascript:void(0)" class="path" data-tooltip="Embrace power. Burn the veil.">Fallen</a>
+        <a href="javascript:void(0)" class="path" data-tooltip="Make your own fate.">Wanderer</a>
+      </div>
+    </section>
 
-<script>
-  document.querySelectorAll('.path').forEach(button => {
-    button.addEventListener('click', function (e) {
-      e.preventDefault(); // Fully blocks default button or link behavior
-      const path = this.textContent;
-      console.log("You selected the", path, "path.");
-      // Optional: add animation, storage, or panel update here
-    });
-  });
-</script>
-
-    
+    <script>
+      document.querySelectorAll('.path').forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault(); // Fully blocks default button or link behavior
+          const path = this.textContent;
+          console.log("You selected the", path, "path.");
+          // Optional: add animation, storage, or panel update here
+        });
+      });
+    </script>
 
     <!-- ################## -->
     <!-- New Gameplay -->
@@ -275,7 +265,6 @@
             The Anointed Path is a mythic action-RPG where you journey through fallen kingdoms, celestial realms, and corrupted lands. 
             As Ezrael, the anointed warrior, rise from exile, reclaim your calling, and confront ancient darkness threatening all creation. 
             Wield divine weapons, forge unbreakable bonds, and decide the fate of Elarion.
-
           </p>
           <a class="btn">PREORDER</a>
         </div>
@@ -314,25 +303,21 @@
       </div>
       -->
       <div class="footer-social">
-  <a href="https://www.instagram.com/crowncrossstudios" target="_blank" rel="noopener" title="Instagram">
-  <i class="bx bxl-instagram"></i>
-</a>
-<a href="https://x.com/CnCStudios_" target="_blank" rel="noopener" title="X (Twitter)">
-  <i class="bx bxl-twitter"></i>
-</a>
-<a href="https://www.reddit.com/user/CrownCrossStudios/" target="_blank" rel="noopener" title="Reddit">
-  <i class="bx bxl-reddit"></i>
-</a>
-<a href="https://www.youtube.com/@crowncrossstudios" target="_blank" rel="noopener" title="YouTube">
-  <i class="bx bxl-youtube"></i>
-</a>
-<a href="https://www.facebook.com/CrownAndCrossStudios" target="_blank" rel="noopener" title="Facebook">
-  <i class="bx bxl-facebook"></i>
-</a>
-
-  </a>
-</div>
-
+        <a href="https://www.instagram.com/crowncrossstudios" target="_blank" rel="noopener" title="Instagram">
+          <i class="bx bxl-instagram"></i>
+        </a>
+        <a href="https://x.com/CnCStudios_" target="_blank" rel="noopener" title="X (Twitter)">
+          <i class="bx bxl-twitter"></i>
+        </a>
+        <a href="https://www.reddit.com/user/CrownCrossStudios/" target="_blank" rel="noopener" title="Reddit">
+          <i class="bx bxl-reddit"></i>
+        </a>
+        <a href="https://www.youtube.com/@crowncrossstudios" target="_blank" rel="noopener" title="YouTube">
+          <i class="bx bxl-youtube"></i>
+        </a>
+        <a href="https://www.facebook.com/CrownAndCrossStudios" target="_blank" rel="noopener" title="Facebook">
+          <i class="bx bxl-facebook"></i>
+        </a>
       </div>
     </footer>
 
@@ -347,5 +332,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
