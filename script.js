@@ -7,7 +7,7 @@ const linkNav = document.querySelectorAll(".navigation a");
 
 // ✅ Toggle mobile menu
 btnBurger.addEventListener("click", () => {
-  nav.classList.toggle("show");
+  nav.classList.toggle("show"); // Changed to "show" to match CSS
   btnBurger.classList.toggle("bx-x");
 });
 
@@ -44,31 +44,27 @@ window.addEventListener("resize", () => {
   }
 });
 
-// ✅ Scroll spy – highlight active nav link
+// ✅ Scroll spy – highlight active nav link (Restored from original)
 const scrollActive = () => {
-  const scrollPosition = window.scrollY;
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 150; // Offset to trigger early
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute("id");
+    let top = window.scrollY;
+    let offset = section.offsetTop - 150;
+    let height = section.offsetHeight;
+    let id = section.getAttribute("id");
 
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      linkNav.forEach((link) => {
-        link.classList.remove("active");
+    if (top >= offset && top < offset + height) {
+      linkNav.forEach((links) => {
+        links.classList.remove("active");
+        document
+          .querySelector(`.navigation a[href*=${id}]`)
+          .classList.add("active");
       });
-      const activeLink = document.querySelector(`.navigation a[href*="${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.add("active");
-      }
     }
   });
 };
 
-// Ensure scrollActive runs on page load and scroll
-document.addEventListener("DOMContentLoaded", () => {
-  scrollActive(); // Run once on load to set initial active state
-  window.addEventListener("scroll", scrollActive); // Attach scroll event
-});
+// Attach the scroll event listener directly (as in the original)
+window.addEventListener("scroll", scrollActive);
 
 // ✅ Swiper Carousel
 var mySwiper = new Swiper(".swiper", {
@@ -83,7 +79,7 @@ var mySwiper = new Swiper(".swiper", {
   },
 });
 
-// ✅ Music player toggle
+// ✅ Music player toggle (Updated version from previous changes)
 document.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('bgm');
   const button = document.getElementById('playMusicBtn');
