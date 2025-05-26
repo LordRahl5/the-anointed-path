@@ -97,3 +97,11 @@ var mySwiper = new Swiper(".swiper", {
     });
   });
 </script>
+
+
+const menuBtn = document.querySelector('.bx-menu');
+const mobileMenu = document.querySelector('.mobile-nav');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
