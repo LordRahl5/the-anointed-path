@@ -735,3 +735,38 @@ p, a, button {
 }
 
 
+
+
+/* Make platform logos responsive and consistent */
+.logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+.logos-container img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tablet fix */
+@media (max-width: 768px) {
+  .logos-container img {
+    width: 60px;
+  }
+}
+
+/* Mobile fix */
+@media (max-width: 480px) {
+  .logos-container img {
+    width: 45px;
+  }
+}
+
