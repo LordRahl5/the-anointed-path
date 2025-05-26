@@ -313,8 +313,8 @@ header.active {
 }
 
 .logos-container img {
-  width: 30px;
-  height: 30px;
+  width: 60px; /* Increased size for better visibility on both desktop and mobile */
+  height: 60px;
 }
 
 footer {
@@ -329,7 +329,9 @@ footer {
 
 .footer-box {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center the heading and links */
 }
 
 .footer-box h6 {
@@ -432,42 +434,41 @@ footer {
 /* Music Toggle Button */
 /* ################### */
 
-#music-toggle {
+#playMusicBtn {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid white;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
-  padding: 10px 15px;
-  cursor: pointer;
+  border: none;
   border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  cursor: pointer;
   z-index: 9999;
   transition: all 0.3s ease;
+  opacity: 1;
 }
 
-#music-toggle:hover {
+#playMusicBtn:hover {
   background-color: #f59cc2;
   color: #1f1f1f;
+}
+
+/* Remove unused #music-toggle styles since we're using #playMusicBtn */
+#music-toggle {
+  display: none; /* Remove this unused style */
 }
 
 /* ################### */
 /* Platform Logos */
 /* ################### */
 
+/* Remove unused .platform-logos since the HTML uses .logos-container */
 .platform-logos {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 20px 0;
-}
-
-.platform-logos img,
-.platform-logos .platform-icon {
-  width: 100px;
-  height: auto;
-  filter: brightness(1.1);
+  display: none; /* Remove this unused style */
 }
 
 /* ################### */
@@ -533,30 +534,50 @@ footer {
     grid-template-columns: 1fr; /* Stack grid items on smaller screens */
   }
 
-  /* Center Links section within footer-box for mobile, tablet, and iPad */
+  /* Ensure Links section remains centered */
   .footer-box {
     align-items: center; /* Center items horizontally */
     text-align: center; /* Center the heading and links */
   }
 
-  .footer-box h6 { /* Target "Links" heading */
-    font-size: 1.5rem; /* Ensure readability on smaller screens */
-    margin: 1rem auto; /* Center and add spacing */
+  .footer-box h6 {
+    font-size: 1.5rem;
+    margin: 1rem auto;
   }
 
-  .footer-box a { /* Target links (Home, Watch Trailer, etc.) */
-    display: inline-block; /* Match your new style */
-    font-size: 1rem; /* Adjust font size for readability */
-    margin: 0.2rem 0; /* Match your new style */
-    padding: 0.2rem 0; /* Match your new style */
-    text-align: center; /* Explicitly center the text */
+  .footer-box a {
+    display: block;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    padding: 0.2rem 0;
+    text-align: center;
   }
 }
 
 /* Small screens (mobile, up to 768px) */
 @media screen and (max-width: 768px) {
-  .platform-logos img {
-    width: 80px; /* Updated to match the previous fix for platform icons */
+  .logos-container img {
+    width: 80px; /* Increased size for better visibility on mobile */
+    height: 80px;
+  }
+
+  /* Ensure footer-box remains centered */
+  .footer-box {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-box h6 {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .footer-box a {
+    display: block;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    padding: 0.2rem 0;
+    text-align: center;
   }
 }
 
@@ -641,5 +662,30 @@ footer {
   /* Adjust footer for mobile */
   .copy {
     font-size: 10px; /* Slightly larger for readability */
+  }
+
+  /* Force footer to single column to avoid overflow */
+  footer {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  /* Ensure Links section remains centered */
+  .footer-box {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-box h6 {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .footer-box a {
+    display: block;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    padding: 0.2rem 0;
+    text-align: center;
   }
 }
