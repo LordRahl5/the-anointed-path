@@ -93,8 +93,8 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align logo and burger menu to the left and right */
-  padding: 1rem 2rem; /* Increased padding for better spacing */
+  justify-content: flex-start;
+  padding: 1rem 2rem;
   transition: 0.5s;
   position: relative;
 }
@@ -117,15 +117,17 @@ header.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1rem; /* Add padding to prevent cutting off edges */
+  padding: 0 1rem;
+  width: auto; /* Ensure the container adjusts to content width */
 }
 
 .navigation a {
   color: var(--text);
-  padding: 10px 30px; /* Reduced padding to fit more links comfortably */
-  margin: 0 0.5rem; /* Adjusted margin for even spacing */
-  font-size: 16px; /* Ensure readability */
+  padding: 10px 15px; /* Reduced padding to fit full text */
+  margin: 0 0.3rem; /* Reduced margin for tighter spacing */
+  font-size: 16px;
   white-space: nowrap; /* Prevent text wrapping */
+  overflow: visible; /* Ensure text isn't clipped */
 }
 
 .navigation a:hover,
@@ -139,7 +141,7 @@ header.active {
   color: var(--accent);
   cursor: pointer;
   display: none;
-  margin-left: auto; /* Push to the right */
+  margin-left: auto;
 }
 
 /* ################### */
@@ -500,7 +502,7 @@ footer {
     top: 60px;
     left: 0;
     width: 100%;
-    min-height: 400px; /* Reduced from 100vh for better mobile experience */
+    min-height: 400px;
     box-shadow: var(--shadow);
     background: var(--bg);
     padding: 1rem 0;
@@ -517,6 +519,7 @@ footer {
     display: block;
     font-family: Merriweather;
     margin: 1rem 0;
+    padding: 10px 0; /* Adjusted padding for mobile */
   }
 
   .navigation a:hover,
