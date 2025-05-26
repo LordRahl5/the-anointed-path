@@ -260,7 +260,7 @@ header.active {
 /* ################### */
 
 .ComingSoon-container {
-  display: flex; /* Added to ensure proper flex layout */
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -272,9 +272,9 @@ header.active {
 }
 
 .ComingSoon-img img {
-  width: 100%; /* Ensure image scales to container width */
+  width: 100%;
   max-width: 500px;
-  height: auto; /* Maintain aspect ratio */
+  height: auto;
   border-radius: 7px;
   object-fit: contain;
   object-position: center;
@@ -435,8 +435,8 @@ footer {
 #music-toggle {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* Adjusted to left for consistency with screenshot */
-  font-size: 1rem; /* Reduced for mobile */
+  left: 20px;
+  font-size: 1rem;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid white;
   color: white;
@@ -459,20 +459,20 @@ footer {
 .platform-logos {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Reduced gap slightly to accommodate larger icons without overcrowding */
-  margin: 20px 0; /* Adjusted margin for better spacing */
+  gap: 30px;
+  margin: 20px 0;
 }
 
 .platform-logos img,
 .platform-logos .platform-icon {
-  width: 100px; /* Increased from 80px to 100px for better visibility on desktop */
+  width: 100px;
   height: auto;
   filter: brightness(1.1);
 }
 
 @media (max-width: 768px) {
   .platform-logos img {
-    width: 80px; /* Increased from 60px to 80px for better visibility on mobile */
+    width: 80px;
   }
 }
 
@@ -535,18 +535,17 @@ footer {
     grid-template-columns: 1fr; /* Stack grid items on smaller screens */
   }
 
-  /* Center Links section for mobile, tablet, and iPad */
-  .links-container { /* Replace with the actual class or tag containing "Links" */
-    text-align: center; /* Center the heading and text */
+  /* Center Links section within footer-box for mobile, tablet, and iPad */
+  .footer-box {
+    text-align: center; /* Center the heading and links */
   }
 
-  .links-container h2 { /* Assuming "Links" is an h2 */
+  .footer-box h6 { /* Target "Links" heading */
     font-size: 1.5rem; /* Ensure readability on smaller screens */
     margin: 1rem auto; /* Center and add spacing */
   }
 
-  .links-container a, /* Target links or list items */
-  .links-container li {
+  .footer-box a { /* Target links (Home, Watch Trailer, etc.) */
     display: block; /* Ensure each item is on a new line */
     font-size: 1rem; /* Adjust font size for readability */
     margin: 0.5rem auto; /* Center and add spacing between items */
