@@ -735,23 +735,39 @@ p, a, button {
 }
 
 
-/* Platform logos override fix */
+/* Final Responsive Fix: Platform Logos */
 .logos-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-  margin: 50px auto;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 40px auto;
   padding: 20px;
+  max-width: 1000px;
 }
 
 .logos-container img {
-  width: 100px !important;
-  height: auto !important;
-  max-width: unset !important;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
-  display: inline-block;
-  filter: brightness(1.2);
-  border: 2px solid red; /* TEMP test */
+  transition: all 0.3s ease;
 }
 
+/* ✅ Mobile size reduction */
+@media (max-width: 768px) {
+  .logos-container {
+    gap: 24px;
+  }
+
+  .logos-container img {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-container img {
+    width: 48px;
+  }
+}
