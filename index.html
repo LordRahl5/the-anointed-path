@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Crown & Cross Studios</title>
+  <meta name="description" content="Crown & Cross Studios creates cinematic worlds through mythic storytelling, games, film, and visual design." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  
+<link rel="preload" as="image" href="assets/hero-ezrael-thalios.png">
+<link rel="preload" as="image" href="assets/hero-atmosphere.png">
+<link rel="preload" as="image" href="assets/logo.png">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+
+
+
+<style id="early-black-paint">
+  html, body {
+    background: #050505 !important;
+    color: #f2f2f2;
+    min-height: 100%;
+  }
+
+  body {
+    background-color: #050505 !important;
+  }
+</style>
+
+</head>
+
+<body>
+
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="customCursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- Cinematic Embers -->
+<div class="embers-container" aria-hidden="true">
+  <div class="ember ember-1"></div>
+  <div class="ember ember-2"></div>
+  <div class="ember ember-3"></div>
+  <div class="ember ember-4"></div>
+  <div class="ember ember-5"></div>
+  <div class="ember ember-6"></div>
+  <div class="ember ember-7"></div>
+  <div class="ember ember-8"></div>
+  <div class="ember ember-9"></div>
+  <div class="ember ember-10"></div>
+  <div class="ember ember-11"></div>
+  <div class="ember ember-12"></div>
+</div>
+
+
+<!-- Crown & Cross Cinematic Intro -->
+<div class="studio-intro" id="studioIntro">
+  <div class="intro-clouds"></div>
+  <div class="intro-light"></div>
+  <div class="intro-ring"></div>
+
+  <div class="intro-logo-wrap">
+    <img src="assets/logo.png" alt="Crown & Cross Studios Logo" class="intro-logo">
+    <h1>Crown & Cross Studios</h1>
+    <p>Mythic Worlds. Cinematic Stories.</p>
+  </div>
+
+  <button class="skip-intro" id="skipIntro" type="button">Skip Intro</button>
+</div>
+
+<header class="site-header">
+    <a href="#home" class="brand">
+      <img src="assets/logo.png" alt="Crown & Cross Studios Logo" />
+      <span>Crown & Cross</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#home">Home</a>
+      <a href="#project">The Anointed Path</a>
+      <a href="#characters">Characters</a>
+      <a href="#videos">Videos</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="grain"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Independent Cinematic Game & Entertainment Studio</p>
+        <h1>Crown & Cross Studios</h1>
+        <p class="hero-copy">
+          Creating cinematic worlds through mythic storytelling, dark fantasy, games,
+          film, and visually driven universes.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#project" class="btn btn-primary">Explore TAP Universe</a>
+          <a href="#videos" class="btn btn-secondary">Watch Videos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-panel" id="project">
+      <div class="section-heading">
+        <p class="eyebrow">Featured Project</p>
+        <h2>The Anointed Path</h2>
+      </div>
+
+      <div class="project-grid">
+        <div class="project-copy">
+          <h3>A mythic dark fantasy universe built for games, film, and cinematic storytelling.</h3>
+          <p>
+            The Anointed Path is a large-scale fantasy world shaped by prophecy,
+            betrayal, celestial war, fallen beings, ancient kingdoms, and emotional character journeys.
+          </p>
+          <p>
+            The universe follows Ezrael, Seraphina, Thalios, and other key figures as they move through
+            realms of corruption, divine calling, war, and redemption.
+          </p>
+        </div>
+
+        <div class="stat-grid">
+          <article>
+            <strong>VILLAINS</strong>
+            <span>Fallen Angels • Demons • Demigods • Witches • Wizards • Gods</span>
+          </article>
+          <article>
+            <strong>UNIVERSE</strong>
+            <span>Game Series • DLCs • Fighting Game • TV Series • Standalone Movies</span>
+          </article>
+          <article>
+            <strong>BILLION$</strong>
+            <span>Huge Franchise Potential</span>
+          </article>
+          <article>
+            <strong>MYTHBORNE</strong>
+            <span>Original Fantasy Universe</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="characters-section" id="characters">
+      <div class="section-heading">
+        <p class="eyebrow">TAP Universe</p>
+        <h2>Featured Characters</h2>
+      </div>
+
+      <div class="character-grid">
+        <article class="character-card">
+          <img src="assets/ezrael.jpg" alt="Ezrael character art" />
+          <div>
+            <h3>Ezrael</h3>
+            <p>The exiled warrior chosen by prophecy, forged through loss, survival, and divine purpose.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <img src="assets/seraphina.png" alt="Seraphina character art" />
+          <div>
+            <h3>Seraphina</h3>
+            <p>A deadly assassin torn between truth, loyalty, memory, and the shadows that shaped her.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <img src="assets/zerachiel.png" alt="Zerachiel Valemar character art" />
+          <div>
+            <h3>Zerachiel Valemar</h3>
+            <p>The fallen king beneath the burning throne, ancient corruption wrapped in majesty.</p>
+          </div>
+        </article>
+
+        <article class="character-card">
+          <img src="assets/thalios.png" alt="Thalios character art" />
+          <div>
+            <h3>Thalios</h3>
+            <p>A loyal companion whose mystery, courage, and awakening become central to the journey.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<section class="slideshow-section" id="cinematic-gallery">
+  <div class="section-heading">
+    <p class="eyebrow">Visual Showcase</p>
+    <h2>Cinematic Worlds</h2>
+  </div>
+
+  <div class="cinematic-slider" id="cinematicSlider">
+    <div class="slides-wrap">
+      
+      <article class="cinematic-slide active">
+        <img src="assets/slideshow/poster 1.png" alt="A Universe Built For Legends">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>A Universe Built For Legends</h3>
+          <p>Explore cinematic worlds, divine conflict, ancient kingdoms, and characters shaped by destiny.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 2.png" alt="Where Heaven And Darkness Collide">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>Where Heaven And Darkness Collide</h3>
+          <p>A dark fantasy vision built for emotional storytelling, combat, mythology, and spectacle.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 3.png" alt="The Mythborne Saga Begins">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>The Mythborne Saga Begins</h3>
+          <p>The Anointed Path expands beyond one game into a connected entertainment universe.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 7.png" alt="Kingdoms Rise. Darkness Answers.">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>Kingdoms Rise. Darkness Answers.</h3>
+          <p>Every realm carries history, danger, prophecy, and visual identity.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 6.png" alt="Games. Film. Television. Music.">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>Games. Film. Television. Music.</h3>
+          <p>Designed for game series, DLCs, fighting experiences, TV series, and standalone films.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 4.png" alt="A Franchise Forged In Fire">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>A Franchise Forged In Fire</h3>
+          <p>A mythic IP with massive long-term storytelling potential.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster.png" alt="Characters Built For Cinema">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>Characters Built For Cinema</h3>
+          <p>Heroes, villains, beasts, angels, demons, and legends collide across Elarion.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 10.png" alt="The Anointed Universe Expands">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>The Anointed Universe Expands</h3>
+          <p>A cinematic world where each image carries a story.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 11.png" alt="From Prophecy To War">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>From Prophecy To War</h3>
+          <p>A journey of exile, survival, faith, betrayal, and redemption.</p>
+        </div>
+      </article>
+
+      <article class="cinematic-slide">
+        <img src="assets/slideshow/poster 12.png" alt="The Next Great Fantasy IP">
+        <div class="slide-shade"></div>
+        <div class="slide-copy">
+          <p class="eyebrow">Cinematic Gallery</p>
+          <h3>The Next Great Fantasy IP</h3>
+          <p>Crown & Cross Studios presents a universe built to grow.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <button class="slider-control slider-prev" id="sliderPrev" type="button" aria-label="Previous slide">‹</button>
+    <button class="slider-control slider-next" id="sliderNext" type="button" aria-label="Next slide">›</button>
+
+    <div class="slide-dots" id="slideDots">
+      <button class="slide-dot active" data-slide="0" aria-label="Go to slide 1"></button><button class="slide-dot" data-slide="1" aria-label="Go to slide 2"></button><button class="slide-dot" data-slide="2" aria-label="Go to slide 3"></button><button class="slide-dot" data-slide="3" aria-label="Go to slide 4"></button><button class="slide-dot" data-slide="4" aria-label="Go to slide 5"></button><button class="slide-dot" data-slide="5" aria-label="Go to slide 6"></button><button class="slide-dot" data-slide="6" aria-label="Go to slide 7"></button><button class="slide-dot" data-slide="7" aria-label="Go to slide 8"></button><button class="slide-dot" data-slide="8" aria-label="Go to slide 9"></button><button class="slide-dot" data-slide="9" aria-label="Go to slide 10"></button>
+    </div>
+  </div>
+</section>
+
+<section class="cinematic-strip">
+      <div>
+        <p class="eyebrow">Worldbuilding</p>
+        <h2>Designed for cinematic trailers, games, music, books, and visual storytelling.</h2>
+      </div>
+    </section>
+
+    <section class="videos-section" id="videos">
+      <div class="section-heading">
+        <p class="eyebrow">Media</p>
+        <h2>Videos & Trailers</h2>
+      </div>
+
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/@CrownCrossStudios" target="_blank" rel="noopener">
+          <span class="play-icon">▶</span>
+          <h3>Visit Crown & Cross Studios on YouTube</h3>
+          <p>Trailers, OSTs, cinematic tests, and TAP Universe videos.</p>
+        </a>
+
+        <a class="video-card" href="https://www.tiktok.com/@crowncrossstudios" target="_blank" rel="noopener">
+          <span class="play-icon">▶</span>
+          <h3>Watch TAP Shorts on TikTok</h3>
+          <p>Short cinematic clips, character reveals, and behind-the-scenes progress.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-image">
+        <img src="assets/hero-atmosphere.png" alt="Cinematic fantasy scene from The Anointed Path" />
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow">About The Studio</p>
+        <h2>Built for mythic storytelling.</h2>
+        <p>
+          Crown & Cross Studios is an independent cinematic game and entertainment studio
+          focused on mythic worlds, dark fantasy stories, emotionally driven characters,
+          and high-impact visual design.
+        </p>
+        <p>
+          The studio is developing The Anointed Path as a connected universe for games,
+          cinematic trailers, music, books, and long-form storytelling.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Connect</p>
+        <h2>Follow Crown & Cross Studios</h2>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://www.youtube.com/@CrownCrossStudios" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/CrownAndCrossStudios" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/crowncrossstudios/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/CnCStudios_" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://www.linkedin.com/company/107201463/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.tiktok.com/@crowncrossstudios" target="_blank" rel="noopener">TikTok</a>
+      </div>
+
+      <p class="email-line">
+        Business inquiries:
+        <a href="mailto:projectanointedpath@gmail.com">projectanointedpath@gmail.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo.png" alt="Crown & Cross Studios Logo" />
+    <p>© 2026 Crown & Cross Studios. All Rights Reserved.</p>
+  </footer>
+
+
+<!-- Background Music -->
+<div class="music-player" id="musicPlayer">
+  <button id="musicToggle" class="music-toggle" type="button" aria-label="Play background music">
+    <span id="musicIcon">▶</span>
+  </button>
+  <span class="music-label" id="musicLabel">Play Music</span>
+</div>
+
+<audio id="bgMusic" preload="auto" loop>
+  <source src="assets/Gate of Elarion.mp3" type="audio/mpeg">
+</audio>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

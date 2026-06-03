@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Audio Test</title>
+<style>
+body{background:#050505;color:white;font-family:Arial;padding:40px;}
+button{font-size:18px;padding:14px 24px;cursor:pointer;background:#d4a017;border:0;border-radius:10px;}
+</style>
+</head>
+<body>
+<h1>Audio Test</h1>
+<p>Click the button below. If this plays, the MP3 path is correct.</p>
+<button onclick="document.getElementById('testAudio').play()">Play Audio</button>
+<audio id="testAudio" controls loop src="assets/Gate of Elarion.mp3" style="display:block;margin-top:30px;width:100%;"></audio>
+<p>Audio path: assets/Gate of Elarion.mp3</p>
+</body>
+</html>
